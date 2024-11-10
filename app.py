@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 # Page configuration
 st.set_page_config(page_title="Home Energy Management System", layout="wide")
@@ -27,10 +27,15 @@ energy_data = pd.DataFrame({
 st.subheader("Current Energy Consumption")
 st.write(energy_data)
 
-# Visualize Energy Consumption with Plotly
-fig = px.bar(energy_data, x='Appliance', y='Energy Consumption (kWh)',
-             title="Real-Time Energy Consumption", labels={'Energy Consumption (kWh)': 'Energy Consumption (kWh)'})
-st.plotly_chart(fig)
+# Plot using Matplotlib
+fig, ax = plt.subplots()
+ax.bar(energy_data['Appliance'], energy_data['Energy Consumption (kWh)'])
+ax.set_title("Real-Time Energy Consumption")
+ax.set_xlabel("Appliance")
+ax.set_ylabel("Energy Consumption (kWh)")
+
+# Show the plot
+st.pyplot(fig)
 
 # Feedback based on energy usage
 st.subheader("Energy Saving Tips")
@@ -63,9 +68,13 @@ st.write("Updated Energy Consumption Data:")
 st.write(energy_data)
 
 # Re-plot the updated graph
-fig_updated = px.bar(energy_data, x='Appliance', y='Energy Consumption (kWh)',
-                     title="Updated Energy Consumption", labels={'Energy Consumption (kWh)': 'Energy Consumption (kWh)'})
-st.plotly_chart(fig_updated)
+fig_updated, ax_updated = plt.subplots()
+ax_updated.bar(energy_data['Appliance'], energy_data['Energy Consumption (kWh)'])
+ax_updated.set_title("Updated Energy Consumption")
+ax_updated.set_xlabel("Appliance")
+ax_updated.set_ylabel("Energy Consumption (kWh)")
 
+# Show the updated plot
+st.pyplot(fig_updated)
 
 
