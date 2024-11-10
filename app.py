@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 # Title and Introduction
 st.set_page_config(page_title="Home Energy Management System (HEMS)", layout="wide")
@@ -87,3 +86,4 @@ st.sidebar.write("**Developed by Bevan Mauya Bosire**")
 st.sidebar.write("GitHub: [mauyaa](https://github.com/mauyaa)")
 
 st.write("💡 Tip: To see a breakdown of appliance-specific energy costs, go to the 'Energy Usage' section.")
+
