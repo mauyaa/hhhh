@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 # Page configuration
 st.set_page_config(page_title="Home Energy Management System", layout="wide")
